@@ -8,6 +8,7 @@ on:
 
 jobs:
   build-windows:
+    uses: seanmiddleditch/gha-setup-ninja@master
     name: Build Windows Clang
     runs-on: windows-latest
 
