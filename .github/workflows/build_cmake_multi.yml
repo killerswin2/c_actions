@@ -8,7 +8,6 @@ on:
 
 jobs:
   build-windows:
-    uses: seanmiddleditch/gha-setup-ninja@master
     name: Build Windows Clang
     runs-on: windows-latest
 
@@ -21,6 +20,7 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Configure CMake
+      uses: seanmiddleditch/gha-setup-ninja@master
       run: >
         cmake --preset Windows-x64-Clang-Debug -S ${{ github.workspace }}
     - name: Build
