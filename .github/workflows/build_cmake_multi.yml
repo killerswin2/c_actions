@@ -18,7 +18,10 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-      
+
+    - name: Setup vcpkg
+      uses: lukka/run-vcpkg@v11
+
     - name: Get ninja
       uses: seanmiddleditch/gha-setup-ninja@master
 
