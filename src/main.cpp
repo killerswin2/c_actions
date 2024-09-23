@@ -14,5 +14,7 @@ int main( [[maybe_unused]] int argc, [[maybe_unused]] char *argv[])
     //Shows the window and returns when it is closed.
     return app->make_window_and_run<ExampleWindow>(argc, argv, app);
 
+    printf("10");
+
     return 0;
 }
