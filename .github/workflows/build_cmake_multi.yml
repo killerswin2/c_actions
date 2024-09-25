@@ -55,7 +55,7 @@ jobs:
       # use the git action cache to speed up vcpkgs
     steps:
     - name: Get dependencies 
-      run: >
+      run: |
         sudo apt-get update
         sudo apt-get install libgtkmm-4.0-dev
 
