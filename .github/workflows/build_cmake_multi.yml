@@ -25,7 +25,7 @@ jobs:
         script: |
           core.exportVariable('ACTIONS_CACHE_URL', process.env.ACTIONS_CACHE_URL || '');
           core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
-
+      # this prevents cmake from finding the wrong compiler
     - name: setup the windows commandline
       uses: TheMrMilchmann/setup-msvc-dev@v3
       with:
@@ -45,3 +45,25 @@ jobs:
     - name: Build
       run: cmake --build ${{ github.workspace }}/out/build/Windows-x64-Clang-Debug
 
+  build-windows:
+    name: Build Linux Clang
+    runs-on: windows-latest
+
+    strategy:
+      # Set fail-fast to false to ensure that feedback is delivered for all matrix combinations. Consider changing this to true when your workflow is stable.
+      fail-fast: false
+      # use the git action cache to speed up vcpkgs
+    steps:
+    - name: Get dependencies 
+      run: >
+        sudo apt install libgtkmm-4.0-dev
+
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+
+    - name: Configure CMake
+      run: >
+        cmake --preset Windows-x64-Clang-Debug -S ${{ github.workspace }}
+    - name: Build
+      run: cmake --build ${{ github.workspace }}/out/build/Windows-x64-Clang-Debug
