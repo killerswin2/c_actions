@@ -76,7 +76,7 @@ jobs:
     - name: Build
       run: cmake --build ${{ github.workspace }}/out/build/Linux-x64-Clang-Debug
 
-build-macos:
+  build-macos:
     name: Build MacOS Clang
     runs-on: macos-14
 
