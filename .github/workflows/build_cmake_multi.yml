@@ -54,9 +54,12 @@ jobs:
       fail-fast: false
       # use the git action cache to speed up vcpkgs
     steps:
-    - name: Get dependencies 
+    - name: Set up Homebrew
+      id: set-up-homebrew
+      uses: Homebrew/actions/setup-homebrew@master
+
+    - name: gtkmm
       run: |
-        "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
         brew install gtkmm4
 
     - name: Checkout code
