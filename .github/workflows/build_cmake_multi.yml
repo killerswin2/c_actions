@@ -56,6 +56,7 @@ jobs:
     steps:
     - name: Update apt-get
       run: |
+        lsb_release -a
         sudo add-apt-repository "http://us.archive.ubuntu.com/ubuntu/"
         sudo add-apt-repository "http://security.ubuntu.com/ubuntu/"
         sudo apt-get update
