@@ -60,7 +60,7 @@ jobs:
 
     - name: get gtkmm
       run: |
-        sudo apt-get install libgtkmm-4.0-dev
+        sudo apt-get install libgtkmm-3.0-dev
 
     - name: Checkout code
       uses: actions/checkout@v4
