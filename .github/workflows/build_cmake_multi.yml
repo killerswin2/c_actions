@@ -56,8 +56,8 @@ jobs:
     steps:
     - name: Get dependencies 
       run: |
-        sudo apt-get update
-        sudo apt-get install libgtkmm-4.0-dev
+        "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+        brew install gtkmm4
 
     - name: Checkout code
       uses: actions/checkout@v4
