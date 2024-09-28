@@ -54,20 +54,10 @@ jobs:
       fail-fast: false
       # use the git action cache to speed up vcpkgs
     steps:
-    - name: Set up Homebrew
-      id: set-up-homebrew
-      uses: Homebrew/actions/setup-homebrew@master
-        
-    - name: Configure Homebrew cache
-      uses: actions/cache@v3
-      with:
-        path: $(brew --prefix)
-        key: brew-${{ hashFiles('.github/brew-formulae') }}
-        restore-keys: brew-
-
-    - name: Install Homebrew dependencies
+    - name: Get dependencies 
       run: |
-        env HOMEBREW_NO_AUTO_UPDATE=1 brew install gtkmm4
+        sudo apt-get update
+        sudo apt-get install libgtkmm-4.0-dev
 
     - name: Checkout code
       uses: actions/checkout@v4
