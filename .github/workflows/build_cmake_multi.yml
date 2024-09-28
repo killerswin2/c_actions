@@ -57,10 +57,17 @@ jobs:
     - name: Set up Homebrew
       id: set-up-homebrew
       uses: Homebrew/actions/setup-homebrew@master
+        
+    - name: Configure Homebrew cache
+      uses: actions/cache@v3
+      with:
+        path: $(brew --prefix)
+        key: brew-${{ hashFiles('.github/brew-formulae') }}
+        restore-keys: brew-
 
-    - name: gtkmm
+    - name: Install Homebrew dependencies
       run: |
-        brew install gtkmm4
+        env HOMEBREW_NO_AUTO_UPDATE=1 brew install gtkmm4
 
     - name: Checkout code
       uses: actions/checkout@v4
