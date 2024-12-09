@@ -15,5 +15,7 @@ int main( [[maybe_unused]] int argc, [[maybe_unused]] char *argv[])
     return app->make_window_and_run<ExampleWindow>(argc, argv, app);
     printf("Hello World!\n");
 
+    printf("10");
+
     return 0;
 }
